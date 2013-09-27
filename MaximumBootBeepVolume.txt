@@ -1,0 +1,14 @@
+# Maintained by: FataZlity
+# Patch Name   : Audio MaximumBootBeepVolume
+
+into method label _DSM parent_label HDEF code_regex "PinConfigurations" replace_matched begin "MaximumBootBeepVolume",\n
+					   Buffer (0x01)\n
+					   {\n
+					   		0x4d\n
+					   },\n
+					   \n
+					   "PinConfigurations"
+end;
+
+into method label _DSM parent_label HDEF code_regex Package\s+\(0x[0-9A-F]{2}\) replace_matched begin Package () end;
+
